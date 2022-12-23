@@ -1,0 +1,17 @@
+<% @page_title='Subject' %>
+    <div class="container">
+        <%= link_to('Back', {:action => 'index'}, class:'btn btn-light ') %>
+
+    <div class="ms-5 mt-3 ps-3 bg-light col-5">
+    
+        <h1>Create Form</h1>
+        <%= form_with model: @subject, url:{:action=> 'create', html: { multipart: true }}, method: :post do |f| %>
+            <!-- < % = form_for(:admin_user, :url =>{:action => 'create'}) do |f| %> -->
+
+            <%= render(:partial=> 'form', :locals => {:f => f}) %>
+                <div class="ms-5">
+                    <%= submit_tag('Create', class: 'btn btn-success mb-3' ) %>
+                </div>
+    </div>
+    <% end %>
+        </div>

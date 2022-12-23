@@ -1,0 +1,51 @@
+<% @page_title='Sections' %>
+<%= link_to 'Add New Section', {:action => 'new', :page_id => @page.id}, class:'btn btn-primary' %>
+    <div class="float-end">
+        <%= link_to 'Back to Pages', {:controller => 'pages', :action => 'index', :subject_id => @page.subject.id}, class:'btn btn-light' %>
+    </div>
+        <table class="table container">
+            <div class="container">
+                <h5 class="mt-2">
+                    <%= pluralize(@sections.size, 'Total Section' ) %>
+                </h5>
+                <h1 class="d-flex justify-content-center">Section Table</h1>
+            </div>
+            <thead>
+                <tr>
+                    <th>Position</th>
+                    <th>Section</th>
+                    <th>Page</th>
+                    <th>Subject</th>
+                    <th>Content Type</th>
+                    <th>Visible</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <% @sections.each do |section| %>
+                <tr>
+                    <td>
+                        <%= section.position %>
+                    </td>
+                    <td>
+                        <%= section.name %>
+                    </td>
+                    <td>
+                        <%= section.page.name %>
+                    </td>
+                    <td>
+                        <%= section.page.subject.name %>
+                    </td>
+                    <td>
+                        <%= section.content_type %>
+                    </td>
+                    <td>
+                        <%= section.visible %>
+                    </td>
+                    <td>
+                        <%= link_to 'Show', {:action => 'show', :id => section.id}, class:'btn btn-warning' %>
+                        <%= link_to 'Edit', {:action => 'edit', :id => section.id, :page_id => @page.id}, class: 'btn btn-secondary' %>
+                        <%= link_to 'Delete', {:action => 'delete', :id => section.id, :page_id => @page.id}, class:'btn btn-danger' %>
+                    </td>
+                </tr>
+                <% end %>
+        </table>

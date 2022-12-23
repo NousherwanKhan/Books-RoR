@@ -1,0 +1,20 @@
+
+<div class="container col-4 bg-light mb-4 form">
+<h1 class="mb-5">Login Form</h1>
+    <!-- < % form_tag model: users, {:action => login_attempt}, method: 'post' do %> -->
+    <%= form_tag(:action=> 'login_attempt') do %>
+
+    <div class="mb-3 col-6">
+        <%= label_tag(:username, 'User Name', class:'form-label') %>
+        <%= text_field_tag(:username, {},class:'form-control') %>
+    </div>
+    <div class="mb-3 col-6">
+        <%= label_tag(:password, 'Password', class:'form-label' ) %>
+            <%= password_field_tag(:password,{},class:'form-control') %>
+    </div>
+    <div class="mb-3">
+        <%= submit_tag('Login', class:'btn btn-primary mb-3' ) %>
+    </div>
+
+    <% end %>
+</div>

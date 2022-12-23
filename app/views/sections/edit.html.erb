@@ -1,0 +1,20 @@
+<% @page_title='Section' %>
+
+    <%= link_to 'Back to Sections' , {:action=> 'index', :page_id => @section.page.id}, class:'btn btn-light' %>
+
+        <div class="form col-6 bg-light mt-5 p-2">
+            <h1>Edit Form</h1>
+
+            <%= form_with model: @section, url:{:action=> 'update', :id => @section.id, :page_id => @section.page.id},
+                method: :post do |f| %>
+
+                <%= render(:partial=> 'form', :locals =>{:f => f}) %>
+
+                    <div class="mb-3">
+                        <%= submit_tag('Update', class:'btn btn-primary') %>
+                    </div>
+
+                    <% end %>
+
+
+        </div>

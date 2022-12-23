@@ -1,0 +1,58 @@
+<div class="input-form">
+    <%= f.label(:name) %>
+        <p>
+            <%= f.text_field(:name, class:'form-control') %>
+                <% if @subject.errors.any? %>
+                    <span class='error'>
+                        <ul>
+                            <% @subject.errors.full_messages_for(:name).each do |message| %>
+                                <li class="text-danger">
+                                    <%= message %>
+                                </li>
+                                <% end %>
+                        </ul>
+                    </span>
+                    <% end %>
+        </p>
+</div>
+<div>
+    <%= f.label(:position) %>
+        <p>
+            <%= f.select(:position, 1..@subject_count, {:prompt=>true}, {class:'form-select'}) %>
+                <% if @subject.errors.any? %>
+                    <span class='error'>
+                        <ul>
+                            <% @subject.errors.full_messages_for(:position).each do |message| %>
+                                <li class="text-danger">
+                                    <%= message %>
+                                </li>
+                                <% end %>
+                        </ul>
+                    </span>
+                    <% end %>
+        </p>
+</div>
+<div>
+    <%= f.label(:visible) %>
+        <p>
+            <%= f.check_box(:visible, class:'form-check-input') %>
+        </p>
+</div>
+<div>
+    <%= f.label(:image, "Image") %>
+        <p>
+            <%= f.file_field(:image, value: @subject.image.url, class:'form-file-input') %>
+            <!-- <%= image_tag @subject.image_as_thumbnails if @subject.image.present? %> -->
+            <% if @subject.errors.any? %>
+                <span class='error'>
+                    <ul>
+                        <% @subject.errors.full_messages_for(:image).each do |message| %>
+                            <li class="text-danger">
+                                <%= message %>
+                            </li>
+                            <% end %>
+                    </ul>
+                </span>
+                <% end %>
+        </p>
+</div>

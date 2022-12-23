@@ -1,0 +1,18 @@
+<% @page_title='Subject' %>
+    <div class="container">
+        <%= link_to('Back', {:action=> 'index'}, class:'btn btn-light ') %>
+
+            <div class="ms-5 mt-3 ps-3 bg-light col-5">
+
+                <h1>Delete Form</h1>
+            <%= form_tag({:action=> 'destroy', :id => @subject.id} ) do %>
+                    <p>Are you sure you want to delete this <b><%= @subject.name %></b> Subject?</p>
+                        
+                    <div class="ms-5">
+                        <%= submit_tag("Delete", class: 'btn btn-success mb-3' ) %>
+                    </div>
+            </div>
+            <% end %>
+    </div>
+
+ 

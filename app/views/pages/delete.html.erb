@@ -1,0 +1,11 @@
+<% @page_title ='Page' %>
+
+<%= link_to 'Back to Pages', {:action => 'index', :subject_id => @page.subject.id}, class:'btn btn-light' %>
+
+<div class="col-5 pt-1 m-3 bg-light">
+    <%= form_with model: @page, url:{:action => 'destroy', :id => @page.id, :subject_id => @page.subject.id}, method: :delete%>
+    <p class="ms-3 mt-3">Do You really want to delete <b><%= @page.name %></b>?</p>
+    <div class="col-3">
+        <%= submit_tag('Delete', class:'btn btn-danger mb-5 ms-3') %>
+    </div>
+</div>

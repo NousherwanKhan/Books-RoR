@@ -1,0 +1,65 @@
+<% @page_title='Subjects' %>
+
+    <%= link_to('Add New Subject', new_subject_path, class:'btn btn-primary ') %>
+        <div class="float-end">
+             <%= link_to(' Admin Menu', {controller: 'users' , action: 'index' }, class:'btn btn-light') %>
+        </div>
+
+        <table class="table">
+            <div class="container">
+                <h5 class="mt-2">
+                    <%= pluralize(@subjects.size, 'Total Subjects' ) %>
+                </h5>
+                <h1 class="d-flex justify-content-center">Subjects Table</h1>
+            </div>
+            <div class="float-end">
+                <%= form_with model: @subject, :action=> index_subject_path, method: :get do |f| %>
+                    <span>
+                        <%= link_to('X', {:action=> "index"}, class:'text-decoration-none text-dark btn') %>
+                    </span>
+                    <%= f.text_field :search %>
+                        <%= submit_tag 'Search' %>
+                            <% end %>
+            </div>
+            <thead>
+                <tr>
+                    <th scope="col">Position</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Visible</th>
+                    <th scope="col">Pages</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <% if @subjects.blank? %>
+                        <td colspan='5'>No Record Found</td>
+                        <% end %>
+                </tr>
+                <% @subjects.each do |subject| %>
+                    <tr>
+                        <th scope="row">
+                            <%= subject.position %>
+                        </th>
+                        <td>
+                            <%= subject.name %>
+                        </td>
+                        <td>
+                            <%= subject.visible %>
+                        </td>
+                        <td>
+                            <%= subject.pages.size %>
+                        </td>
+                        <td>
+                            <%= link_to('View Page', {:controller=> 'pages', :subject_id => subject.id}, class:'btn
+                                btn-success') %>
+                                <%= link_to('Show', {:action=> 'show', :id => subject.id}, class:'btn btn-warning') %>
+                                    <%= link_to('Edit', {:action=> 'edit', :id => subject.id}, class:'btn
+                                        btn-secondary') %>
+                                        <%= link_to('Delete', {:action=> 'delete', :id => subject.id}, class:'btn
+                                            btn-danger') %>
+                        </td>
+                    </tr>
+                    <% end %>
+            </tbody>
+        </table>

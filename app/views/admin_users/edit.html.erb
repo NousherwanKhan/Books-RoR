@@ -1,0 +1,15 @@
+<% @page_title='Users' %>
+
+    <%= link_to('Back to Users Table', {:action=> 'index'}, class:'btn btn-light') %>
+        <div class="ms-5 mt-3 ps-3 bg-light col-5">
+
+            <h1>Edit Form</h1>
+            <!-- < % = form_with(model: @page) do |f| %> -->
+            <%= form_with model: @user, url:{:action=>'update', :id => @user.id}, method: :post do |f| %>
+
+                <%= render(:partial=> 'form', :locals => {:f => f}) %>
+                    <div class="ms-5">
+                        <%= submit_tag("Update", class: 'btn btn-success mb-3' ) %>
+                    </div>
+        </div>
+        <% end %>

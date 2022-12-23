@@ -1,0 +1,48 @@
+<% @page_title='Users' %>
+    <%= link_to('Add New User', new_admin_path, class:'btn btn-light ') %>
+<div class="float-end">
+<%= link_to(' Admin Menu', {controller: 'users' , action: 'index' }, class:'btn btn-secondary') %>
+        <!-- < % = link_to('Sections List', index_section_path, class:'btn btn-warning') %> -->
+
+        </div>
+
+        <table class="table">
+            <div class="container">
+                <h5 class="mt-2">
+                    <%= pluralize(@users.size, 'Total Users' ) %>
+
+                </h5>
+                <h1 class="d-flex justify-content-center">Users Table</h1>
+            </div>
+            <thead>
+                <tr>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">User Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @users.each do |user| %>
+                    <tr>
+                        <th scope="row">
+                            <%= user.last_name %>
+                        </th>
+                        <td>
+                            <%= user.first_name %>
+                        </td>
+                        <td>
+                            <%= user.username %>
+                        </td>
+                        <td>
+                            <%= mail_to(user.email) %>
+                        </td>
+                        <td>
+                            <%= link_to 'Edit' , edit_admin_path(user), class:'btn btn-info' %>
+                            <%= link_to 'Delete' , destroy_admin_path(user), class:'btn btn-danger' %>
+                        </td>
+                    </tr>
+                    <% end %>
+            </tbody>
+        </table>

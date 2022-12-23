@@ -1,0 +1,36 @@
+<!--Main Navigation-->
+<header>
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class=" collapse d-lg-block sidebar collapse bg-white">
+        <h5> <% if !session[:user_id].blank? %>
+            <%= link_to 'Admin Menu' , {:controller=> 'users', :action => 'index'}, class:'navbar-brand, bg-dark
+                text-light btn btn-light col-12' %>
+                <% end %>
+        </h5>
+        <div class="position-sticky">
+            <div class="mx-3 mt-4">
+                <ul class="list-unstyled nav nav-pills flex-column mb-auto " aria-current="true">
+                    <li class="me-3 nav-item dropdown nav-link active bg-dark text-light mb-3">Subjects</li>
+                </ul>
+            </div>
+            <% subjects.each do |subject| %>
+                <div class="dropdown">
+                    <button class="btn btn-light dropdown-toggle nav-item dropdown mb-3 mx-3" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <%= subject.name %>
+                    </button>
+                    <div class="dropdown-menu bg-light" aria-labelledby="dropdownMenuButton">
+                        <% subject.pages.sorted.each do |page| %>
+                            <li class="me-3 nav nav-link text-dark">
+                                <%= link_to_unless_current(page.name, {:action=> 'show', :permalink => page.permalink},class:"text-decoration-none ms-3 mb-2") %>
+                            </li>
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </nav>
+    <!-- Sidebar -->
+
+</header>
+<!--Main Navigation-->

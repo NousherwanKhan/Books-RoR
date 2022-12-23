@@ -1,0 +1,52 @@
+<div class="col-5 mb-3">
+    <%= f.label(:position, class:'mt-3') %>
+        <%= f.select(:position, 1..@page_count, {:prompt=> true}, class:'form-select') %>
+            <% if @page.errors.any? %>
+                <% @page.errors.full_messages_for(:position).each do |error| %>
+                    <span>
+                        <li class="text-danger">
+                            <%= error %>
+                        </li>
+                    </span>
+                <% end %>
+            <% end %>
+</div>
+<div class="col-5 mb-3">
+    <%= f.label(:subject_id, class:'mt-3') %>
+        <%= collection_select(:page, :subject_id, Subject.all, :id, :name, {:prompt=> true}, class:'form-select') %>
+        <% if @page.errors.any? %>
+        <% @page.errors.full_messages_for(:subject_id).each do |error| %>
+        <span>
+            <li class="text-danger"> <%= error %></li>
+        </span>
+        <% end %>
+        <% end %>
+</div>
+<div class="col-5 mb-3">
+    <%= f.label(:name, class:'mt-3') %>
+        <%= f.text_field(:name, class:'form-control') %>
+        <% if @page.errors.any? %>
+        <% @page.errors.full_messages_for(:name).each do |error| %>
+        <span>
+            <li class="text-danger"> <%= error %></li>
+        </span>
+        <% end %>
+        <% end %>
+</div>
+<div class="col-5 mb-3">
+    <%= f.label(:permalink, class:'mt-3') %>
+        <%= f.text_field(:permalink, class:'form-control') %>
+        <% if @page.errors.any? %>
+        <% @page.errors.full_messages_for(:permalink).each do |error| %>
+        <span>
+            <li class="text-danger"> <%= error %></li>
+        </span>
+        <% end %>
+        <% end %>
+</div>
+<div class="col-5 mb-3">
+    <%= f.label(:visible, class:'mt-3') %>
+        <p>
+            <%= f.check_box(:visible, class:'form-check-input') %>
+        </p>
+</div>

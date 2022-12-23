@@ -1,0 +1,45 @@
+<% @page_title ='Pages' %>
+
+    <div class="float-end">
+        <%= link_to('Back to Subjects', {:controller=> 'subjects', :action => 'index'}, class:'btn btn-light') %>
+    </div>
+    <%= link_to 'Add New Page', {:action => 'new', :subject_id => @subject.id}, class:'btn btn-primary' %> 
+    <table class="table container">
+        <div class="container">
+            <h5 class="mt-2">
+                <%= pluralize(@pages.size, 'Total Section' ) %>
+            </h5>
+            <h1 class="d-flex justify-content-center">Page Table</h1>
+        </div>
+        <thead>
+            <tr>
+                <th>Position</th>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Subject ID</th>
+                <th>Visible</th>
+                <th>Sections</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <% @pages.each do |page| %>
+        <tr>
+            <td><%= page.position %></td>
+            <td><%= page.name %></td>
+            <td><%= page.subject.name %></td>
+            <td>
+                <%= page.subject_id %>
+            </td>
+            <td><%= page.visible %></td>
+            <td>
+                <%= page.sections.count %>
+            </td>
+            <td>
+                <%= link_to 'View Sections', {:controller => 'sections', :action => 'index', :page_id => page.id}, class:'btn btn-success' %>
+                <%= link_to 'Show', {:action => 'show', :id => page.id, :subject_id => @subject.id}, class:'btn btn-warning' %>
+                <%= link_to 'Edit', {:action => 'edit', :id => page.id, :subject_id => @subject_id}, class:'btn btn-secondary' %>
+                <%= link_to 'Delete', {:action => 'delete', :id => page.id, :subject_id => @subject_id}, class:'btn btn-danger' %>
+            </td>
+        </tr>
+        <% end %>
+    </table>

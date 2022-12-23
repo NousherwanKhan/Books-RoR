@@ -1,0 +1,32 @@
+<% @page_title="Subject" %>
+
+    <%= link_to('Back to Subject', {:action=> 'index'}, class:'btn btn-light') %>
+
+        <div class="col-6 bg-light p-2 mt-5">
+            <h5>Position</h5>
+            <p>
+                <%= @subject.position || 'no position yet' %>
+            </p>
+            <h5>Subject Name</h5>
+            <p>
+                <%= @subject.name %>
+            </p>
+            <h5>Visible</h5>
+            <p>
+                <%= @subject.visible %>
+            </p>
+            <h5>Image</h5>
+            <p>
+                <% if @subject.image.content_type.in?(%w[image/jpeg, image/png]) %>
+                <%= image_tag @subject.image_as_thumbnails if @subject.image.attached? %>
+                <% end %>
+            </p>
+            <h5>Created At</h5>
+            <p>
+                <%= @subject.created_at %>
+            </p>
+            <h5>Updated At</h5>
+            <p>
+                <%= @subject.updated_at %>
+            </p>
+        </div>

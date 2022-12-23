@@ -1,0 +1,20 @@
+<% @page_title="Admin Menu" %>
+    <div>   
+        <div>
+            <%= link_to 'Home' , {:controller=> 'publics', :action => 'index'},class:'navbar-brand, bg-dark text-light btn btn-light' %>
+            <%= link_to('Logout', {:action=> 'logout'}, class:'float-end btn btn-warning') %>
+        </div>
+        </div>
+            <h2 class="mb-3">Admin Menu</h2>
+            <div class="h5 mb-4">Logged in as: <%= session[:username] %> </div>
+        <div class="list-group col-4">
+            <div>
+                <%= link_to('Manage Subjects', {:controller=> 'subjects' }, class:'list-group-item
+                    list-group-item-action') %>
+            </div>
+            <div>
+                <%= link_to 'Manage Admin Users' , index_admin_path, class:'list-group-item list-group-item-action' %>
+
+            </div>
+        </div>
+    </div>

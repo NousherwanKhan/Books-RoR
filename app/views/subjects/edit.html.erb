@@ -1,0 +1,18 @@
+<% @page_title='Subject' %>
+    <div class="container">
+        <%= link_to('Back', {:action=> 'index'}, class:'btn btn-light ') %>
+
+            <div class="ms-5 mt-3 ps-3 bg-light col-5">
+
+                <h1>Update Form</h1>
+
+                <%= form_for :subject, url:{:action=> 'update', :id => @subject.id, html: { multipart: true }}, method: :post do |f| %>
+
+                    <%= render(:partial=> 'form', :locals => {:f => f}) %>
+                        
+                    <div class="ms-3">
+                    <%= submit_tag('Update', class:'btn btn-primary mb-3 ') %>
+                    </div>
+                <% end %>
+            </div>
+    </div>

@@ -1,0 +1,35 @@
+<% @page_title ='Page' %>
+
+    <%= link_to('Back to Pages', {:action=> 'index', :subject_id => @page.subject.id}, class:'btn btn-light') %>
+
+        <div class="col-6 bg-light p-2 mt-5">
+            <h5>Name</h5>
+            <p>
+                <%= @page.name %>
+            </p>
+            <h5>Permalink</h5>
+            <p>
+                <%= @page.permalink %>
+            </p>
+
+            <h5>Position</h5>
+            <p>
+                <%= @page.position || 'no position yet' %>
+            </p>
+            <h5>Subject Name</h5>
+            <p>
+                <%= @page.subject.name %>
+            </p>
+            <h5>Visible</h5>
+            <p>
+                <%= @page.visible %>
+            </p>
+            <h5>Created At</h5>
+            <p>
+                <%= @page.created_at %>
+            </p>
+            <h5>Updated At</h5>
+            <p>
+                <%= @page.updated_at %>
+            </p>
+        </div>

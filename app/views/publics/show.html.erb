@@ -1,0 +1,14 @@
+<h1 class="mb-5"><%= @page.name %></h1>
+
+<% @page.sections.visible.sorted.each do |section| %>
+
+
+<% case section.content_type %>
+<% when 'Voilence' %>
+<p class="text-danger"><%= section.content %></p>
+<% when 'Peace' %>
+<p class="text-primary"> <%= section.content %></p>
+<% end %>
+<% end %>
+
+

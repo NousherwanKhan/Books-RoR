@@ -1,0 +1,40 @@
+<% @page_title='Section' %>
+
+    <%= link_to 'Back to Section' , {:action=> 'index', :page_id => @section.page.id}, class:'btn btn-light' %>
+
+        <div class="col-6 bg-light p-2 mt-5">
+
+            <h5>Subject</h5>
+            <p>
+                <%= @section.page.subject.name %>
+            </p>
+            <h5>Page</h5>
+            <p>
+                <%= @section.page.subject.name %>
+            </p>
+            <h5>Section</h5>
+            <p>
+                <%= @section.name %>
+            </p>
+            <h5>Position</h5>
+            <p>
+                <%= @section.position %>
+            </p>
+            <h5>Content Type</h5>
+            <p>
+                <%= @section.content_type %>
+            </p>
+            <h5>Content</h5>
+            <i>
+                <%= @section.content %>
+            </i>
+            <h5>Created At</h5>
+            <p>
+                <%= @section.created_at %>
+            </p>
+            <h5>Updated At</h5>
+            <p>
+                <%= @section.updated_at %>
+            </p>
+
+        </div>

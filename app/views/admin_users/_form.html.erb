@@ -1,0 +1,94 @@
+<div class="form">
+    <div class="input-form">
+        <%= f.label(:first_name) %>
+            <p>
+                <%= f.text_field(:first_name, class:'form-control') %>
+                    <% if @user.errors.any? %>
+                        <span class='error'>
+                            <ul>
+                                <% @user.errors.full_messages_for(:first_name).each do |message| %>
+                                    <li class="text-danger">
+                                        <%= message %>
+                                    </li>
+                                    <% end %>
+                            </ul>
+                        </span>
+                        <% end %>
+            </p>
+    </div>
+    <div class="input-form">
+        <%= f.label(:last_name) %>
+            <p>
+                <%= f.text_field(:last_name, class:'form-control') %>
+                    <% if @user.errors.any? %>
+                        <span class='error'>
+                            <ul>
+                                <% @user.errors.full_messages_for(:last_name).each do |message| %>
+                                    <li class="text-danger">
+                                        <%= message %>
+                                    </li>
+                                    <% end %>
+                            </ul>
+                        </span>
+                        <% end %>
+            </p>
+    </div>
+    <div>
+        <%= f.label(:username) %>
+            <p>
+                <%= f.text_field(:username, class:'form-control') %>
+
+                    <% if @user.errors.any? %>
+                        <span class='error'>
+                            <ul>
+                                <% @user.errors.full_messages_for(:username).each do |message| %>
+                                    <li class="text-danger">
+                                        <%= message %>
+                                    </li>
+                                    <% end %>
+                            </ul>
+                        </span>
+                        <% end %>
+            </p>
+    </div>
+    <div>
+        <%= f.label(:email) %>
+            <p>
+                <%= f.text_field(:email, class:'form-control') %>
+                    <% if @user.errors.any? %>
+                        <span class='error'>
+                            <ul>
+                                <% @user.errors.full_messages_for(:email).each do |message| %>
+                                    <li class="text-danger">
+                                        <%= message %>
+                                    </li>
+                                    <% end %>
+                            </ul>
+                        </span>
+                        <% end %>
+            </p>
+    </div>
+    <div>
+        <%= f.label(:password) %>
+            <p>
+                <%= f.password_field(:password, class:'form-control') %>
+                    <% if @user.errors.any? %>
+                        <span class='error'>
+                            <ul>
+                                <% @user.errors.full_messages_for(:eamil).each do |message| %>
+                                    <li class="text-danger">
+                                        <%= message %>
+                                    </li>
+                                    <% end %>
+                            </ul>
+                        </span>
+                        <% end %>
+            </p>
+    </div>
+    <!-- <div>
+        < % = f.label(:created_at) %>
+            <p>
+                < % = f.datetime_select(:created_at, :order => [:month, :day, :year], class:'form-select') %>
+            </p>
+    </div> -->
+</div>

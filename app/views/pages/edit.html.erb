@@ -1,0 +1,17 @@
+<% @page_title ='Page' %>
+
+<%= link_to 'Back to Pages', {:action => 'index', :subject_id => @page.subject.id}, class:'btn btn-light' %>
+
+
+<div class="form col-6 bg-light mt-5 p-2">
+    <h1>Edit Form</h1>
+
+    <%= form_with model: @page, url:{:action => 'update', :id => @page.id, :subject_id => @page.subject.id}, method:  :post, local: true do |f| %>
+
+    <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+    <div class="mb-3">
+        <%= submit_tag 'Update', class:'btn btn-primary' %>
+    </div>
+    <% end %>
+</div>
